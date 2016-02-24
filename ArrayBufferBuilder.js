@@ -145,6 +145,6 @@ ArrayBufferBuilder.prototype.readFloat64 = function(){
 }
 ArrayBufferBuilder.prototype.readString = function(){
 	var length = this.readUint32();
-    var encodedString = String.fromCharCode.apply(null, new Uint8Array(this.readBuffer(length)));
-    return decodeURIComponent(escape(encodedString));
+	var encodedString = String.fromCharCode.apply(null, new Uint8Array(this.readBuffer(length)));
+	return decodeURIComponent(escape(encodedString));
 }
