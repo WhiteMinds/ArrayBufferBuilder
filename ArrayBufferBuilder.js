@@ -116,3 +116,35 @@ ArrayBufferBuilder.prototype.readBuffer2 = function(length){//ie11 (faster)
 		return buffer;
 	}
 }
+ArrayBufferBuilder.prototype.readUint8Clamped = function(){
+	return new Uint8ClampedArray(this.readBuffer(1))[0];
+}
+ArrayBufferBuilder.prototype.readInt8 = function(){
+	return new Int8Array(this.readBuffer(1))[0];
+}
+ArrayBufferBuilder.prototype.readUint8 = function(){
+	return new Uint8Array(this.readBuffer(1))[0];
+}
+ArrayBufferBuilder.prototype.readInt16 = function(){
+	return new Int16Array(this.readBuffer(2))[0];
+}
+ArrayBufferBuilder.prototype.readUint16 = function(){
+	return new Uint16Array(this.readBuffer(2))[0];
+}
+ArrayBufferBuilder.prototype.readInt32 = function(){
+	return new Int32Array(this.readBuffer(4))[0];
+}
+ArrayBufferBuilder.prototype.readUint32 = function(){
+	return new Uint32Array(this.readBuffer(4))[0];
+}
+ArrayBufferBuilder.prototype.readFloat32 = function(){
+	return new Float32Array(this.readBuffer(4))[0];
+}
+ArrayBufferBuilder.prototype.readFloat64 = function(){
+	return new Float64Array(this.readBuffer(8))[0];
+}
+ArrayBufferBuilder.prototype.readString = function(){
+	var length = this.readUint32();
+    var encodedString = String.fromCharCode.apply(null, new Uint8Array(this.readBuffer(length)));
+    return decodeURIComponent(escape(encodedString));
+}
