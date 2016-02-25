@@ -82,10 +82,7 @@
 	                      0x80 | (charcode & 0x3f));
 	        }
 	    }
-	    var res = new Uint8Array(new ArrayBuffer(utf8.length));
-		for(i in utf8)
-			res[i] = utf8[i];
-		return res;
+		return new Uint8Array(utf8);
 	}
 	/* writeFunction Over */
 	/* readFunction Start */
