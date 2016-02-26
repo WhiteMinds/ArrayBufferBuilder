@@ -28,7 +28,7 @@
 		bytes[0] = value;
 		this.writeBuffer(bytes.buffer);
 	}
-	ArrayBufferBuilder.prototype.writeInt8 = ArrayBufferBuilder.prototype.writeUint8 = function(value){
+	ArrayBufferBuilder.prototype.writeInt8 = ArrayBufferBuilder.prototype.writeUint8 = ArrayBufferBuilder.prototype.writeByte = function(value){
 		var bytes = new Int8Array(1);
 		bytes[0] = value;
 		this.writeBuffer(bytes.buffer);
@@ -124,7 +124,7 @@
 	ArrayBufferBuilder.prototype.readInt8 = function(){
 		return new Int8Array(this.readBuffer(1))[0];
 	}
-	ArrayBufferBuilder.prototype.readUint8 = function(){
+	ArrayBufferBuilder.prototype.readUint8 = ArrayBufferBuilder.prototype.readByte = function(){
 		return new Uint8Array(this.readBuffer(1))[0];
 	}
 	ArrayBufferBuilder.prototype.readInt16 = function(){
